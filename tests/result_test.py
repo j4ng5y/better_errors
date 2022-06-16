@@ -31,14 +31,16 @@ def test_setting_ok_only(ok_only):
 def test_setting_err_only(err_only):
     testval = Exception("TEST")
     val = err_only.value()
-    assert val == testval
+    assert type(val) == type(testval)
 
 
 def test_setting_ok_and_err(both):
+    testval = Exception("TEST")
     val = both.value()
-    assert val == Exception("TEST")
+    assert type(val) == type(testval)
 
 
 def test_setting_none(none):
+    testval = Exception("TEST")
     val = none.value()
-    assert val == Exception("no result or error")
+    assert type(val) is type(testval)
